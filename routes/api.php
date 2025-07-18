@@ -12,6 +12,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/applications', [ApplicationController::class, 'index']);
 
     Route::get('/export/logs', [ActivityLogController::class, 'export']);
+    
 });
 
 Route::post('/logs', [ActivityLogController::class, 'store'])->middleware('auth.apikey');
+Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
+Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
