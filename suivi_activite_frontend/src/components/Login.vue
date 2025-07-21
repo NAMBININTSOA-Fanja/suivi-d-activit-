@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="login" >
+  <form  @submit.prevent="login">
     <div>
       <label for="email">Email:</label>
       <input v-model="email" type="email"  required>

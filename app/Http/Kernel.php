@@ -67,7 +67,9 @@ class Kernel implements KernelContract
      * @var array
      */
 
-    protected $routeMiddleware = [];
+    protected $routeMiddleware = [
+        'is_admin' => \App\Http\Middleware\IsAdmin::class,
+];
 
     /**
      * The priority-sorted list of middleware.
