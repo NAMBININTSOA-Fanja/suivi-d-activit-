@@ -10,6 +10,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
+        
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -19,6 +20,11 @@ class AuthController extends Controller
         return response()->json(['message' => 'Identifiants invalides'], 401);
     }
 
+    public function user(Request $request)
+    {
+        return response()->json($request->user());
+    }
+    
     public function logout(Request $request)
     {
         Auth::guard('web')->logout();
